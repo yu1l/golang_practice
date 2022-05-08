@@ -1,3 +1,4 @@
+// print command itself.
 package main
 
 import (
