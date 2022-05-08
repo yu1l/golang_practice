@@ -1,3 +1,4 @@
+// display index of os arguments and command itself.
 package main
 
 import (
