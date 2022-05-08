@@ -1,3 +1,6 @@
+// compare performance of
+// 1. vanilla echo
+// 2. echo using string.Join
 package main
 
 import (
