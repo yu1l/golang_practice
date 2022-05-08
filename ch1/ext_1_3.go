@@ -31,7 +31,6 @@ func main() {
 	elapsed_echo1 := finish_echo1.Sub(start_echo1)
 	fmt.Println(elapsed_echo1)
 
-
 	start_with_strings := time.Now()
 
 	fmt.Println("start - with_strings()")
