@@ -1,4 +1,4 @@
-// $ go run ch1/dup2.go sample.txt
+// $ go run ch1/dup2.go ch1/sample.txt
 
 package main
 
