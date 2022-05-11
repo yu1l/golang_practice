@@ -1,2 +1,3 @@
-# golang_practice
-Go言語の練習用リポジトリ
+参考文献
+
+[プログラミング言語Go](https://www.gopl.io/)
