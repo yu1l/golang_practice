@@ -18,10 +18,10 @@ import (
 
 var pc [8]byte
 
-func PopCount() int {
+func PopCount(pointers *[8]byte) int {
 	count := 0
-	for i := 0; i < len(pc); i++ {
-		num := pc[i]
+	for i := 0; i < len(pointers); i++ {
+		num := pointers[i]
 		if num == 1 {
 			count++
 		}
@@ -41,6 +41,6 @@ func main() {
 		index++
 	}
 	fmt.Println("bit: ", pc)
-	count := PopCount()
+	count := PopCount(&pc)
 	fmt.Println("count: ", count)
 }
