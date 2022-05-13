@@ -20,7 +20,7 @@ func PopCount(pointers *[8]byte) int {
 	count := 0
 	for i := 0; i < len(pointers); i++ {
 		num := pointers[i]
-		if byte(num&1) == 1 {
+		if num == 1 {
 			count++
 		}
 	}
