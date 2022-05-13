@@ -16,17 +16,25 @@ import (
 	"strconv"
 )
 
-var pc [8]byte
-
 func PopCount(pointers *[8]byte) int {
 	count := 0
 	for i := 0; i < len(pointers); i++ {
 		num := pointers[i]
-		if num == 1 {
+		if byte(num&1) == 1 {
 			count++
 		}
 	}
 	return count
+}
+
+func CreateByteArray(number int) [8]byte {
+	var pc [8]byte
+	index := 0
+	for n := number; n > 0; n = int(byte(n >> 1)) {
+		pc[index] = byte(n&1)
+		index++
+	}
+	return pc
 }
 
 func main() {
@@ -35,11 +43,7 @@ func main() {
 	if err != nil {
 		os.Exit(1)
 	}
-	index := 0
-	for n := argInt; n > 0; n = int(byte(n >> 1)) {
-		pc[index] = byte(n&1)
-		index++
-	}
+	pc := CreateByteArray(argInt)
 	fmt.Println("bit: ", pc)
 	count := PopCount(&pc)
 	fmt.Println("count: ", count)
