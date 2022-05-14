@@ -1,3 +1,4 @@
+// $ go run ch3/ext_3_12.go ABCB CBBA
 package main
 
 import (
