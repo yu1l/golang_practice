@@ -26,9 +26,15 @@ func isAnagram(first string, second string) bool {
 func main() {
 	a := os.Args[1]
 	b := os.Args[2]
-	if len(a) != len(b) {
+	if a == b {
+		fmt.Println("not anagram")
 		os.Exit(0)
 	}
+	if len(a) != len(b) {
+		fmt.Println("not anagram")
+		os.Exit(0)
+	}
+
 	if isAnagram(a, b) {
 		fmt.Println("anagram")
 	} else {
