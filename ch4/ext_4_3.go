@@ -1,3 +1,4 @@
+// 合ってるか分からないからあとで見直し
 // $ go run ch4/ext_4_3.go
 package main
 
