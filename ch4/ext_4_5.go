@@ -1,4 +1,5 @@
 // $ go run ch4/ext_4_5.go heeeelllooo
+// => helo
 package main
 
 import (
@@ -7,28 +8,41 @@ import (
 	"os"
 )
 
-func removeNextDuplicatedChars(s string) string {
+func remove(slice []string, i int) []string {
+	copy(slice[i:], slice[i+1:])
+	return slice[:len(slice)-1]
+}
+
+func removeNextDuplicatedCharInStringSlice(s string) string {
 	var buf bytes.Buffer
-	stack := []string{}
+	strSlice := []string{}
 	for _, r := range s {
-		str := string(r)
-		if len(stack) == 0 {
-			stack = append(stack, str)
+		strSlice = append(strSlice, string(r))
+	}
+
+	step := 1
+	for index := 0; index < len(strSlice); index += step {
+		if index == 0 {
+			continue
+		}
+
+		prevChar := strSlice[index-1]
+		currentChar := strSlice[index]
+		if prevChar == currentChar {
+			strSlice = remove(strSlice, index)
+			step = 0
 		} else {
-			lastChar := stack[len(stack)-1]
-			if lastChar != str {
-				stack = append(stack, str)
-			}
+			step = 1
 		}
 	}
-	for _, r := range stack {
-		fmt.Fprintf(&buf, "%s", r)
+	for _, r := range strSlice {
+		fmt.Fprintf(&buf, "%s", string(r))
 	}
 	return buf.String()
 }
 
 func main() {
 	s := os.Args[1]
-	res := removeNextDuplicatedChars(s)
+	res := removeNextDuplicatedCharInStringSlice(s)
 	fmt.Println(res)
 }
